@@ -16,3 +16,5 @@ C:\KinectSDK\KinectFusionExplorer-WPF\obj\Debug\Microsoft.Samples.Kinect.KinectF
 C:\KinectSDK\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.csproj.GenerateResource.Cache
 C:\KinectSDK\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.exe
 C:\KinectSDK\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.pdb
+C:\Users\Thomas\Documents\CMPUT414Group\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.exe
+C:\Users\Thomas\Documents\CMPUT414Group\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.pdb
