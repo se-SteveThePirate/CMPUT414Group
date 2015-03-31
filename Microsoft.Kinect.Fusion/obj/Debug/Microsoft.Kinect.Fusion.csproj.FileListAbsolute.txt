@@ -1,9 +1,0 @@
-C:\KinectSDK\Microsoft.Kinect.Fusion\bin\Debug\Microsoft.Kinect.Fusion.dll
-C:\KinectSDK\Microsoft.Kinect.Fusion\bin\Debug\Microsoft.Kinect.Fusion.pdb
-C:\KinectSDK\Microsoft.Kinect.Fusion\bin\Debug\Microsoft.Kinect.dll
-C:\KinectSDK\Microsoft.Kinect.Fusion\bin\Debug\Microsoft.Kinect.xml
-C:\KinectSDK\Microsoft.Kinect.Fusion\obj\Debug\Microsoft.Kinect.Fusion.csprojResolveAssemblyReference.cache
-C:\KinectSDK\Microsoft.Kinect.Fusion\obj\Debug\Microsoft.Kinect.Fusion.Resources.resources
-C:\KinectSDK\Microsoft.Kinect.Fusion\obj\Debug\Microsoft.Kinect.Fusion.csproj.GenerateResource.Cache
-C:\KinectSDK\Microsoft.Kinect.Fusion\obj\Debug\Microsoft.Kinect.Fusion.dll
-C:\KinectSDK\Microsoft.Kinect.Fusion\obj\Debug\Microsoft.Kinect.Fusion.pdb

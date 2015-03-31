@@ -1,0 +1,15 @@
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\bin\x64\Debug\FaceBasics-WPF.exe.config
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\bin\x64\Debug\FaceBasics-WPF.exe
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\bin\x64\Debug\FaceBasics-WPF.pdb
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\bin\x64\Debug\Microsoft.Kinect.Face.dll
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\bin\x64\Debug\Microsoft.Kinect.Face.xml
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\FaceBasics-WPF.csprojResolveAssemblyReference.cache
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\MainWindow.baml
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\MainWindow.g.cs
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\App.g.cs
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\FaceBasics-WPF_MarkupCompile.cache
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\FaceBasics-WPF.g.resources
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\Microsoft.Samples.Kinect.FaceBasics.Properties.Resources.resources
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\FaceBasics-WPF.csproj.GenerateResource.Cache
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\FaceBasics-WPF.exe
+D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectSDKFiles\FaceBasics-WPF\obj\x64\Debug\FaceBasics-WPF.pdb
