@@ -90,7 +90,7 @@
         private int frameCount = 0;
         private List<HighDetailFacePoints> recordPoints = null;
         private StreamWriter fileWriter = null;
-
+        private Joint head;
         public MainWindow()
         {
             this.InitializeComponent();
@@ -438,6 +438,7 @@
                 captureButton.Content = "Stop recording";
                 recordPoints = new List<HighDetailFacePoints>();
                 FacePointCheckList.IsEnabled = false;
+                rateSlider.IsEnabled = false;
                 string writeFacePoints = null;
 
                 foreach (CheckBox FacePoint in FacePointCheckList.Items)
@@ -453,6 +454,7 @@
             {
                 captureButton.Content = "Start recording";
                 FacePointCheckList.IsEnabled = true;
+                rateSlider.IsEnabled = true;
                 if(fileWriter!=null)
                 {
                     fileWriter.Close();
@@ -490,12 +492,13 @@
                     }
                 }
 
-                Body selectedBody = FindClosestBody(frame);
+                Body selectedBody = FindClosestBody(frame);  
 
                 if (selectedBody == null)
                 {
                     return;
                 }
+                head = selectedBody.Joints[JointType.Head];
 
                 this.currentTrackedBody = selectedBody;
                 this.CurrentTrackingId = selectedBody.TrackingId;
@@ -545,20 +548,28 @@
                 {
                     return;
                 }
-                if (recording)
+                if (recording && head != null)
                 {
                     frameCount++;
+
                     txt_FPS.Text = frameCount.ToString();
-                    var vertices = this.currentFaceModel.CalculateVerticesForAlignment(this.currentFaceAlignment);
-                    string coordinate = null;
-                    foreach (HighDetailFacePoints HDFP in recordPoints)
+
+                    if (frameCount % (31 - rateSlider.Value) == 0)
                     {
-                        coordinate = null;
-                        CameraSpacePoint spacePoint = vertices[(int)HDFP];
-                        coordinate += spacePoint.X + " " + spacePoint.Y + " " + spacePoint.Z;
-                        fileWriter.WriteLine(coordinate);
+                        var vertices = this.currentFaceModel.CalculateVerticesForAlignment(this.currentFaceAlignment);
+                        string coordinate = null;
+                        foreach (HighDetailFacePoints HDFP in recordPoints)
+                        {
+                            coordinate = null;
+                            CameraSpacePoint spacePoint = vertices[(int)HDFP];
+                            float x = spacePoint.X - head.Position.X;
+                            float y = spacePoint.Y - head.Position.Y;
+                            float z = spacePoint.Z - head.Position.Z;
+                            coordinate += x + " " + y + " " + z;
+                            fileWriter.WriteLine(coordinate);
+                        }
+                        fileWriter.WriteLine("#");
                     }
-                    fileWriter.WriteLine("#");
                 }
 
                 var triangleIndices = this.currentFaceModel.TriangleIndices;

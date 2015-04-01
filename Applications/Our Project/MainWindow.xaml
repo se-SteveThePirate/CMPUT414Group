@@ -25,8 +25,9 @@
         <TextBlock x:Name="txt_Status" Grid.Row="1"  Text="{Binding StatusText}" />
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button x:Name="captureButton" Click="Capture_Button_Click">Start Capture</Button>
-            <TextBlock Margin="100, 0, 0, 0">Capture Rate</TextBlock>
-            <Slider Width="281"> </Slider>
+            <TextBlock Margin="100, 0, 0, 0">Capture Rate (Captures/Second)</TextBlock>
+            <Slider x:Name="rateSlider" Width="281" Maximum="30" Minimum="1" Interval="1" TickFrequency="1" Value="30" Ticks="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30" TickPlacement="Both" IsSnapToTickEnabled="True"> </Slider>
+            <TextBlock Margin="0, 0, 0, 0" Text="{Binding ElementName=rateSlider, Path=Value}"></TextBlock>
             <TextBlock Margin="100, 0, 0, 0" xml:space="preserve">Frame: </TextBlock>
             <TextBlock x:Name="txt_FPS" Margin="0, 0, 0, 0">0</TextBlock>
         </StackPanel>
