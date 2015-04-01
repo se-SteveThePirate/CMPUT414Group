@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Microsoft.Samples.Kinect.HDFaceBasics
+﻿namespace Microsoft.Samples.Kinect.HDFaceBasics
 {
     using System;
     using System.ComponentModel;
@@ -14,6 +8,8 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
     using Microsoft.Kinect;
     using Microsoft.Kinect.Face;
     using System.Windows.Controls;
+    using System.Collections.Generic;
+    using System.IO;
 
     /// <summary>
     /// Main Window
@@ -92,6 +88,8 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
 
         private Boolean recording = false;
         private int frameCount = 0;
+        private List<HighDetailFacePoints> recordPoints = null;
+        private StreamWriter fileWriter = null;
 
         public MainWindow()
         {
@@ -263,7 +261,8 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
 
             return result;
         }
-
+        //Thomas 
+        /*
         /// <summary>
         /// Gets the current collection status
         /// </summary>
@@ -311,7 +310,7 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
 
             return res;
         }
-
+        */
         /// <summary>
         /// Helper function to format a status message
         /// </summary>
@@ -332,10 +331,14 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
         {
             this.InitializeHDFace();
             //Thomas
-            foreach (HighDetailFacePoints HDFP in Enum.GetValues(typeof(HighDetailFacePoints)))
+            foreach (string HDFP in Enum.GetNames(typeof(HighDetailFacePoints)))
                     {
-                ListViewItem item = new ListViewItem(); 
-                    }
+                ListViewItem item = new ListViewItem();
+                CheckBox facePointItem = new CheckBox();
+                facePointItem.IsChecked = true;
+                facePointItem.Content=HDFP;
+                this.FacePointCheckList.Items.Add(facePointItem);    
+            }
         
         }
 
@@ -344,6 +347,7 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
         /// </summary>
         private void InitializeHDFace()
         {
+
             this.CurrentBuilderStatus = "Ready To Start Capture";
 
             this.sensor = KinectSensor.GetDefault();
@@ -353,10 +357,6 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
 
             this.highDefinitionFaceFrameSource = new HighDefinitionFaceFrameSource(this.sensor);
             this.highDefinitionFaceFrameSource.TrackingIdLost += this.HdFaceSource_TrackingIdLost;
-
-            faceSource = new FaceFrameSource(sensor, 0, FaceFrameFeatures.BoundingBoxInColorSpace | FaceFrameFeatures.FaceEngagement | FaceFrameFeatures.Glasses | FaceFrameFeatures.Happy | FaceFrameFeatures.LeftEyeClosed | FaceFrameFeatures.RightEyeClosed | FaceFrameFeatures.MouthOpen | FaceFrameFeatures.PointsInColorSpace);
-            faceReader = faceSource.OpenReader();
-            faceReader.FrameArrived += faceReader_FrameArrived;
 
             this.highDefinitionFaceFrameReader = this.highDefinitionFaceFrameSource.OpenReader();
             this.highDefinitionFaceFrameReader.FrameArrived += this.HdFaceReader_FrameArrived;
@@ -432,13 +432,34 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
         private void Capture_Button_Click(object sender, RoutedEventArgs e)
         {
             recording = !recording;
-            if(recording)
+            if (recording)
             {
                 frameCount = 0;
                 captureButton.Content = "Stop recording";
+                recordPoints = new List<HighDetailFacePoints>();
+                FacePointCheckList.IsEnabled = false;
+                string writeFacePoints = null;
+
+                foreach (CheckBox FacePoint in FacePointCheckList.Items)
+                {
+                    recordPoints.Add((HighDetailFacePoints)Enum.Parse(typeof(HighDetailFacePoints), FacePoint.Content.ToString()));
+                    writeFacePoints += FacePoint.Content.ToString() +", ";
+                }
+                fileWriter = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\test.txt"); //Thomas
+                fileWriter.WriteLine(writeFacePoints);
+
             }
             else
+            {
                 captureButton.Content = "Start recording";
+                FacePointCheckList.IsEnabled = true;
+                if(fileWriter!=null)
+                {
+                    fileWriter.Close();
+                }
+            }
+
+
         }
 
         /// <summary>
@@ -529,14 +550,15 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
                     frameCount++;
                     txt_FPS.Text = frameCount.ToString();
                     var vertices = this.currentFaceModel.CalculateVerticesForAlignment(this.currentFaceAlignment);
-
-                    foreach (HighDetailFacePoints HDFP in Enum.GetValues(typeof(HighDetailFacePoints)))
+                    string coordinate = null;
+                    foreach (HighDetailFacePoints HDFP in recordPoints)
                     {
+                        coordinate = null;
                         CameraSpacePoint spacePoint = vertices[(int)HDFP];
+                        coordinate += spacePoint.X + " " + spacePoint.Y + " " + spacePoint.Z;
+                        fileWriter.WriteLine(coordinate);
                     }
-
-                    CameraSpacePoint LeftCheekBone = vertices[(int)HighDetailFacePoints.Leftcheekbone];
-                    CameraSpacePoint foreHeadCenter = vertices[(int)HighDetailFacePoints.ForeheadCenter];
+                    fileWriter.WriteLine("#");
                 }
 
                 var triangleIndices = this.currentFaceModel.TriangleIndices;
@@ -544,26 +566,6 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
 
                 frame.GetAndRefreshFaceAlignmentResult(this.currentFaceAlignment);
                 this.UpdateMesh();
-            }
-        }
-
-        void faceReader_FrameArrived(object sender, FaceFrameArrivedEventArgs e)
-        {
-            using (var frame = e.FrameReference.AcquireFrame())
-            {
-                if (frame != null)
-                {
-                FaceFrameResult result = frame.FaceFrameResult;
-                if (result != null)
-                {
-                    var LeftEye = result.FacePointsInColorSpace[FacePointType.EyeLeft];
-                    var RightEye = result.FacePointsInColorSpace[FacePointType.EyeRight];
-                    var MouthLeft = result.FacePointsInColorSpace[FacePointType.MouthCornerLeft];
-                    var MouthRight = result.FacePointsInColorSpace[FacePointType.MouthCornerRight];
-                    var nose = result.FacePointsInColorSpace[FacePointType.Nose];
-
-                }
-                }
             }
         }
 
@@ -581,6 +583,8 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
             this.faceModelBuilder.BeginFaceDataCollection();
 
             this.faceModelBuilder.CollectionCompleted += this.HdFaceBuilder_CollectionCompleted;
+
+           
         }
 
         /// <summary>
@@ -629,7 +633,7 @@ namespace Microsoft.Samples.Kinect.HDFaceBasics
 
             var collectionStatus = this.faceModelBuilder.CollectionStatus;
 
-            newStatus += ", " + GetCollectionStatusText(collectionStatus);
+          //Thomas  newStatus += ", " + GetCollectionStatusText(collectionStatus);
 
             this.CurrentBuilderStatus = newStatus;
         }

@@ -27,7 +27,7 @@
             <Button x:Name="captureButton" Click="Capture_Button_Click">Start Capture</Button>
             <TextBlock Margin="100, 0, 0, 0">Capture Rate</TextBlock>
             <Slider Width="281"> </Slider>
-            <TextBlock Margin="100, 0, 0, 0">Frame: </TextBlock>
+            <TextBlock Margin="100, 0, 0, 0" xml:space="preserve">Frame: </TextBlock>
             <TextBlock x:Name="txt_FPS" Margin="0, 0, 0, 0">0</TextBlock>
         </StackPanel>
         <StackPanel>
