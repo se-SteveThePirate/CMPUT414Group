@@ -7,7 +7,9 @@
     using System.Windows.Media.Media3D;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Face;
+    //using Microsoft.VisualBasic.PowerPacks;
     using System.Windows.Controls;
+    using System.Windows.Shapes;
     using System.Collections.Generic;
     using System.IO;
 
@@ -429,6 +431,8 @@
             this.StartCapture();
         }
         */
+
+        //Steve is attempting to add bounding box generation
         private void Capture_Button_Click(object sender, RoutedEventArgs e)
         {
             recording = !recording;
@@ -548,26 +552,56 @@
                 {
                     return;
                 }
+
+                
                 if (recording && head != null)
                 {
                     frameCount++;
 
                     txt_FPS.Text = frameCount.ToString();
 
+                    //********************
+                    GeometryConverter convert = new GeometryConverter();
+
+
                     if (frameCount % (31 - rateSlider.Value) == 0)
                     {
                         var vertices = this.currentFaceModel.CalculateVerticesForAlignment(this.currentFaceAlignment);
                         string coordinate = null;
+                        //Steve's code*****//
+                        float minX = 100;
+                        float maxX = 0;
+                        float minY = 100;
+                        float maxY = 0;
+                        Rectangle boundingBox = new Rectangle();
+                        testCanvas.Children.Add(boundingBox);
+                        //*****************//
                         foreach (HighDetailFacePoints HDFP in recordPoints)
                         {
                             coordinate = null;
                             CameraSpacePoint spacePoint = vertices[(int)HDFP];
+
                             float x = spacePoint.X - head.Position.X;
                             float y = spacePoint.Y - head.Position.Y;
                             float z = spacePoint.Z - head.Position.Z;
+
+                            //***************************//
+                            minX = Math.Min(minX, x);
+                            maxX = Math.Max(maxX, x);
+                            minY = Math.Min(minY, y);
+                            maxY = Math.Max(maxY, y);
+                            //***************************//
+
                             coordinate += x + " " + y + " " + z;
                             fileWriter.WriteLine(coordinate);
                         }
+                        //********************
+                        boundingBox2.Width = 75;
+                        boundingBox2.Height = 100;
+                        Canvas.SetLeft(boundingBox2, 490+(650*minX));
+                        Canvas.SetTop(boundingBox2, 375+(-600*maxY));
+
+                        //**********************************
                         fileWriter.WriteLine("#");
                     }
                 }
