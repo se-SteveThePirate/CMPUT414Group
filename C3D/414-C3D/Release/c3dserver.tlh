@@ -1,0 +1,668 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 12.00.31101.0 (d208ee79).
+//
+// c:\users\owner\desktop\414\414-c3d\414-c3d\release\c3dserver.tlh
+//
+// C++ source equivalent of Win32 type library c3dserver.dll
+// compiler-generated file created 04/08/15 at 17:14:17 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace C3DSERVERLib {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("f8e8a4cd-fb0a-4bef-a217-414d396b532d"))
+/* LIBID */ __C3DSERVERLib;
+struct /* coclass */ C3D;
+struct __declspec(uuid("48c82c70-91f5-4a94-9afb-281b00b1483f"))
+/* dual interface */ IC3D;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IC3D, __uuidof(IC3D));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("a1379bfa-1900-4314-98a0-7f8337cd18b7"))
+C3D;
+    // [ default ] interface IC3D
+
+struct __declspec(uuid("48c82c70-91f5-4a94-9afb-281b00b1483f"))
+IC3D : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    int Open (
+        _bstr_t sFilename,
+        int nMode );
+    HRESULT Close ( );
+    int GetNumber3DPoints ( );
+    int GetAnalogChannels ( );
+    int GetVideoFrame (
+        int nStartEnd );
+    int GetMaxInterpolationGap ( );
+    float GetHeaderScaleFactor ( );
+    int GetStartingRecord ( );
+    int GetAnalogVideoRatio ( );
+    float GetVideoFrameRate ( );
+    int GetNumberGroups ( );
+    _bstr_t GetGroupName (
+        int nIndex );
+    int GetGroupNumber (
+        int nIndex );
+    _bstr_t GetGroupDescription (
+        int nIndex );
+    int GetNumberParameters ( );
+    _bstr_t GetParameterName (
+        int nIndex );
+    _bstr_t GetParameterDescription (
+        int nIndex );
+    int GetParameterNumber (
+        int nIndex );
+    int GetParameterType (
+        int nIndex );
+    int GetParameterNumberDim (
+        int nIndex );
+    int GetParameterDimension (
+        int nIndex,
+        int nDim );
+    int GetParameterLength (
+        int nIndex );
+    _variant_t GetParameterValue (
+        int nIndex,
+        int nItem );
+    int GetParameterIndex (
+        _bstr_t sGroup,
+        _bstr_t sParam );
+    _variant_t GetAnalogData (
+        int nChannel,
+        int nFrame,
+        int nSubframe,
+        unsigned char byScaled,
+        float fOffset,
+        float fScale,
+        unsigned char byUseScale );
+    _variant_t GetPointData (
+        int nChannel,
+        int nCord,
+        int nFrame,
+        unsigned char byScaled );
+    float GetPointResidual (
+        int nChannel,
+        int nFrame );
+    _bstr_t GetPointMask (
+        int nChannel,
+        int nFrame );
+    int GetNumberEvents ( );
+    float GetEventTime (
+        int nIndex );
+    int GetFileType ( );
+    int GetDataType ( );
+    int GetVideoFrameHeader (
+        int nStartEnd );
+    int GetGroupIndex (
+        _bstr_t sGroup );
+    int GetLastError ( );
+    _variant_t GetAnalogDataEx (
+        int nChannel,
+        int nStart,
+        int nEnd,
+        unsigned char byScaled,
+        float fOffset,
+        float fScale,
+        unsigned char byUseScale );
+    _variant_t GetPointDataEx (
+        int nChannel,
+        int nCord,
+        int nStart,
+        int nEnd,
+        unsigned char byScaled );
+    _variant_t GetPointResidualEx (
+        int nChannel,
+        int nStart,
+        int nEnd );
+    _variant_t GetPointMaskEx (
+        int nChannel,
+        int nStart,
+        int nEnd );
+    int SaveFile (
+        _bstr_t sFilename,
+        int nFiletype );
+    int AddEvent (
+        _bstr_t sLabel,
+        unsigned char byStatus,
+        float fTime );
+    _bstr_t GetEventLabel (
+        int nIndex );
+    int SetEventLabel (
+        int nIndex,
+        _bstr_t sLabel );
+    int SetEventTime (
+        int nIndex,
+        float fTime );
+    int SetEventStatus (
+        int nIndex,
+        unsigned char byStatus );
+    int DeleteEvent (
+        int nIndex );
+    int SetGroupName (
+        int nIndex,
+        _bstr_t sName );
+    int SetGroupNumber (
+        int nIndex,
+        int nNumber );
+    int SetGroupDescription (
+        int nIndex,
+        _bstr_t sDesc );
+    int SetGroupLock (
+        int nIndex,
+        unsigned char byLock );
+    int AddGroup (
+        int nNumber,
+        _bstr_t sName,
+        _bstr_t sDesc,
+        unsigned char byLock );
+    int DeleteGroup (
+        int nIndex,
+        unsigned char byDeleteParams );
+    int SetParameterName (
+        int nIndex,
+        _bstr_t sName );
+    int SetParameterNumber (
+        int nIndex,
+        int nNumber );
+    int SetParameterLock (
+        int nIndex,
+        unsigned char byLock );
+    int SetParameterDescription (
+        int nIndex,
+        _bstr_t sDesc );
+    int SetParameterType (
+        int nIndex,
+        int nType );
+    int CopyParameter (
+        int nIndex );
+    int RetrieveParameter (
+        int nIndex );
+    int SetParameterValue (
+        int nIndex,
+        int nItem,
+        const _variant_t & vValue );
+    unsigned char GetEventStatus (
+        int nIndex );
+    int AddParameter (
+        _bstr_t sName,
+        _bstr_t sDesc,
+        _bstr_t sGroup,
+        unsigned char byLock,
+        int nType,
+        int nNumDim,
+        const _variant_t & vDimList,
+        const _variant_t & vData );
+    int SetAnalogData (
+        int nChannel,
+        int nFrame,
+        int nSubframe,
+        const _variant_t & vData );
+    int DeleteParameter (
+        int nIndex );
+    int SetPointData (
+        int nChannel,
+        int nCord,
+        int nFrame,
+        const _variant_t & vData );
+    int DeleteAnalogChannel (
+        int nIndex );
+    int DeleteMarker (
+        int nIndex );
+    int AddAnalogChannel ( );
+    int AddMarker ( );
+    int RemoveParameterData (
+        int nIndex,
+        int nItem );
+    int AddFrames (
+        int nFrames,
+        int nInsertAt );
+    int DeleteFrames (
+        int nStartAt,
+        int nNumFrames );
+    unsigned char GetGroupLock (
+        int nIndex );
+    unsigned char GetParameterLock (
+        int nIndex );
+    int GetRegistrationMode ( );
+    _bstr_t GetRegUserName ( );
+    _bstr_t GetRegUserOrganization ( );
+    _bstr_t GetVersion ( );
+    unsigned char IsModified ( );
+    int AddParameterData (
+        int nIndex,
+        int nItems );
+    int NewFile (
+        _bstr_t sFile,
+        int nFiletype,
+        int nDataType,
+        int nAnalog,
+        int nAVRatio,
+        int nMarkers,
+        float fRate,
+        float fScale,
+        int nFrames );
+    int SetMaxInterpolationGap (
+        int nGap );
+    int SetKey (
+        _bstr_t sKey );
+    _variant_t GetForceData (
+        int nCord,
+        int nFP,
+        int nStart,
+        int nEnd );
+    _variant_t GetMomentData (
+        int nCord,
+        int nFP,
+        int nStart,
+        int nEnd );
+    int ZeroAnalogChannel (
+        int nChannel,
+        int nMethod,
+        int nUseFrames );
+    int SetAnalogDataEx (
+        int nChannel,
+        int nFrame,
+        const _variant_t & vData );
+    int SetPointDataEx (
+        int nChannel,
+        int nCord,
+        int nFrame,
+        const _variant_t & vData );
+    HRESULT SetStrictParameterChecking (
+        int nValue );
+    int SetAVRatio (
+        int nAVRatio );
+    int SetPointDataExFP (
+        int nChannel,
+        int nCord,
+        int nFrame,
+        const _variant_t & vData );
+    int DeleteAnalogChannelWithParam (
+        int nIndex );
+    int DeleteMarkerWithParam (
+        int nIndex );
+    HRESULT CompressParameterBlocks (
+        int Compress );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Open (
+        /*[in]*/ BSTR sFilename,
+        /*[in]*/ int nMode,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_Close ( ) = 0;
+      virtual HRESULT __stdcall raw_GetNumber3DPoints (
+        /*[out,retval]*/ int * n3dPoints ) = 0;
+      virtual HRESULT __stdcall raw_GetAnalogChannels (
+        /*[out,retval]*/ int * nAnalog ) = 0;
+      virtual HRESULT __stdcall raw_GetVideoFrame (
+        /*[in]*/ int nStartEnd,
+        /*[out,retval]*/ int * nFrame ) = 0;
+      virtual HRESULT __stdcall raw_GetMaxInterpolationGap (
+        /*[out,retval]*/ int * nIntGap ) = 0;
+      virtual HRESULT __stdcall raw_GetHeaderScaleFactor (
+        /*[out,retval]*/ float * fScale ) = 0;
+      virtual HRESULT __stdcall raw_GetStartingRecord (
+        /*[out,retval]*/ int * nRecord ) = 0;
+      virtual HRESULT __stdcall raw_GetAnalogVideoRatio (
+        /*[out,retval]*/ int * nAVRatio ) = 0;
+      virtual HRESULT __stdcall raw_GetVideoFrameRate (
+        /*[out,retval]*/ float * fVideoRate ) = 0;
+      virtual HRESULT __stdcall raw_GetNumberGroups (
+        /*[out,retval]*/ int * nGroups ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupName (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ BSTR * sName ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupNumber (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pNumber ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupDescription (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ BSTR * pDesc ) = 0;
+      virtual HRESULT __stdcall raw_GetNumberParameters (
+        /*[out,retval]*/ int * pNumber ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterName (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ BSTR * pName ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterDescription (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ BSTR * pDesc ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterNumber (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pNumber ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterType (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pType ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterNumberDim (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pNumDim ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterDimension (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nDim,
+        /*[out,retval]*/ int * pValue ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterLength (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pLength ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterValue (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nItem,
+        /*[out,retval]*/ VARIANT * pValue ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterIndex (
+        /*[in]*/ BSTR sGroup,
+        /*[in]*/ BSTR sParam,
+        /*[out,retval]*/ int * pIndex ) = 0;
+      virtual HRESULT __stdcall raw_GetAnalogData (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nFrame,
+        /*[in]*/ int nSubframe,
+        /*[in]*/ unsigned char byScaled,
+        /*[in]*/ float fOffset,
+        /*[in]*/ float fScale,
+        unsigned char byUseScale,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_GetPointData (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nCord,
+        /*[in]*/ int nFrame,
+        /*[in]*/ unsigned char byScaled,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_GetPointResidual (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nFrame,
+        /*[out,retval]*/ float * fValue ) = 0;
+      virtual HRESULT __stdcall raw_GetPointMask (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nFrame,
+        /*[out,retval]*/ BSTR * pMask ) = 0;
+      virtual HRESULT __stdcall raw_GetNumberEvents (
+        /*[out,retval]*/ int * pEvents ) = 0;
+      virtual HRESULT __stdcall raw_GetEventTime (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ float * fTime ) = 0;
+      virtual HRESULT __stdcall raw_GetFileType (
+        /*[out,retval]*/ int * pType ) = 0;
+      virtual HRESULT __stdcall raw_GetDataType (
+        /*[out,retval]*/ int * pType ) = 0;
+      virtual HRESULT __stdcall raw_GetVideoFrameHeader (
+        /*[in]*/ int nStartEnd,
+        /*[out,retval]*/ int * nFrame ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupIndex (
+        /*[in]*/ BSTR sGroup,
+        /*[out,retval]*/ int * pIndex ) = 0;
+      virtual HRESULT __stdcall raw_GetLastError (
+        /*[out,retval]*/ int * pError ) = 0;
+      virtual HRESULT __stdcall raw_GetAnalogDataEx (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nStart,
+        /*[in]*/ int nEnd,
+        /*[in]*/ unsigned char byScaled,
+        /*[in]*/ float fOffset,
+        /*[in]*/ float fScale,
+        /*[in]*/ unsigned char byUseScale,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_GetPointDataEx (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nCord,
+        /*[in]*/ int nStart,
+        /*[in]*/ int nEnd,
+        /*[in]*/ unsigned char byScaled,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_GetPointResidualEx (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nStart,
+        /*[in]*/ int nEnd,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_GetPointMaskEx (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nStart,
+        /*[in]*/ int nEnd,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_SaveFile (
+        /*[in]*/ BSTR sFilename,
+        /*[in]*/ int nFiletype,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_AddEvent (
+        /*[in]*/ BSTR sLabel,
+        /*[in]*/ unsigned char byStatus,
+        /*[in]*/ float fTime,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_GetEventLabel (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ BSTR * sLabel ) = 0;
+      virtual HRESULT __stdcall raw_SetEventLabel (
+        /*[in]*/ int nIndex,
+        /*[in]*/ BSTR sLabel,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetEventTime (
+        /*[in]*/ int nIndex,
+        /*[in]*/ float fTime,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetEventStatus (
+        /*[in]*/ int nIndex,
+        /*[in]*/ unsigned char byStatus,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteEvent (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetGroupName (
+        /*[in]*/ int nIndex,
+        /*[in]*/ BSTR sName,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetGroupNumber (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nNumber,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetGroupDescription (
+        /*[in]*/ int nIndex,
+        /*[in]*/ BSTR sDesc,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetGroupLock (
+        /*[in]*/ int nIndex,
+        /*[in]*/ unsigned char byLock,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_AddGroup (
+        /*[in]*/ int nNumber,
+        /*[in]*/ BSTR sName,
+        /*[in]*/ BSTR sDesc,
+        /*[in]*/ unsigned char byLock,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteGroup (
+        /*[in]*/ int nIndex,
+        unsigned char byDeleteParams,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetParameterName (
+        /*[in]*/ int nIndex,
+        /*[in]*/ BSTR sName,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetParameterNumber (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nNumber,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetParameterLock (
+        /*[in]*/ int nIndex,
+        /*[in]*/ unsigned char byLock,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetParameterDescription (
+        /*[in]*/ int nIndex,
+        /*[in]*/ BSTR sDesc,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetParameterType (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nType,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_CopyParameter (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_RetrieveParameter (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetParameterValue (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nItem,
+        /*[in]*/ VARIANT vValue,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_GetEventStatus (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ unsigned char * pbyStatus ) = 0;
+      virtual HRESULT __stdcall raw_AddParameter (
+        /*[in]*/ BSTR sName,
+        /*[in]*/ BSTR sDesc,
+        /*[in]*/ BSTR sGroup,
+        /*[in]*/ unsigned char byLock,
+        /*[in]*/ int nType,
+        /*[in]*/ int nNumDim,
+        /*[in]*/ VARIANT vDimList,
+        /*[in]*/ VARIANT vData,
+        /*[out,retval]*/ int * pIndex ) = 0;
+      virtual HRESULT __stdcall raw_SetAnalogData (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nFrame,
+        /*[in]*/ int nSubframe,
+        /*[in]*/ VARIANT vData,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteParameter (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetPointData (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nCord,
+        /*[in]*/ int nFrame,
+        /*[in]*/ VARIANT vData,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteAnalogChannel (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteMarker (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_AddAnalogChannel (
+        /*[out,retval]*/ int * pChannelIndex ) = 0;
+      virtual HRESULT __stdcall raw_AddMarker (
+        /*[out,retval]*/ int * pMarkerIndex ) = 0;
+      virtual HRESULT __stdcall raw_RemoveParameterData (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nItem,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_AddFrames (
+        /*[in]*/ int nFrames,
+        /*[in]*/ int nInsertAt,
+        /*[out,retval]*/ int * nReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteFrames (
+        /*[in]*/ int nStartAt,
+        /*[in]*/ int nNumFrames,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupLock (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ unsigned char * byLock ) = 0;
+      virtual HRESULT __stdcall raw_GetParameterLock (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ unsigned char * byLock ) = 0;
+      virtual HRESULT __stdcall raw_GetRegistrationMode (
+        /*[out,retval]*/ int * pMode ) = 0;
+      virtual HRESULT __stdcall raw_GetRegUserName (
+        /*[out,retval]*/ BSTR * pName ) = 0;
+      virtual HRESULT __stdcall raw_GetRegUserOrganization (
+        /*[out,retval]*/ BSTR * pOrg ) = 0;
+      virtual HRESULT __stdcall raw_GetVersion (
+        /*[out,retval]*/ BSTR * pVersion ) = 0;
+      virtual HRESULT __stdcall raw_IsModified (
+        /*[out,retval]*/ unsigned char * byModified ) = 0;
+      virtual HRESULT __stdcall raw_AddParameterData (
+        /*[in]*/ int nIndex,
+        /*[in]*/ int nItems,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_NewFile (
+        /*[in]*/ BSTR sFile,
+        /*[in]*/ int nFiletype,
+        /*[in]*/ int nDataType,
+        /*[in]*/ int nAnalog,
+        /*[in]*/ int nAVRatio,
+        /*[in]*/ int nMarkers,
+        /*[in]*/ float fRate,
+        /*[in]*/ float fScale,
+        /*[in]*/ int nFrames,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetMaxInterpolationGap (
+        /*[in]*/ int nGap,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetKey (
+        /*[in]*/ BSTR sKey,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_GetForceData (
+        /*[in]*/ int nCord,
+        /*[in]*/ int nFP,
+        /*[in]*/ int nStart,
+        /*[in]*/ int nEnd,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_GetMomentData (
+        /*[in]*/ int nCord,
+        /*[in]*/ int nFP,
+        /*[in]*/ int nStart,
+        /*[in]*/ int nEnd,
+        /*[out,retval]*/ VARIANT * pData ) = 0;
+      virtual HRESULT __stdcall raw_ZeroAnalogChannel (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nMethod,
+        /*[in]*/ int nUseFrames,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetAnalogDataEx (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nFrame,
+        /*[in]*/ VARIANT vData,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetPointDataEx (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nCord,
+        /*[in]*/ int nFrame,
+        /*[in]*/ VARIANT vData,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetStrictParameterChecking (
+        /*[in]*/ int nValue ) = 0;
+      virtual HRESULT __stdcall raw_SetAVRatio (
+        /*[in]*/ int nAVRatio,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_SetPointDataExFP (
+        /*[in]*/ int nChannel,
+        /*[in]*/ int nCord,
+        /*[in]*/ int nFrame,
+        /*[in]*/ VARIANT vData,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteAnalogChannelWithParam (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_DeleteMarkerWithParam (
+        /*[in]*/ int nIndex,
+        /*[out,retval]*/ int * pReturn ) = 0;
+      virtual HRESULT __stdcall raw_CompressParameterBlocks (
+        /*[in]*/ int Compress ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "c:\users\owner\desktop\414\414-c3d\414-c3d\release\c3dserver.tli"
+
+} // namespace C3DSERVERLib
+
+#pragma pack(pop)
