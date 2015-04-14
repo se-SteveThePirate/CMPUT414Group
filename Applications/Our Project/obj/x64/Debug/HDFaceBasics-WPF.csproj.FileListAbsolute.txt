@@ -94,3 +94,6 @@ C:\Users\Steven\Source\Repos\CMPUT414Group\Applications\Our Project\obj\x64\Debu
 C:\Users\Steven\Source\Repos\CMPUT414Group\Applications\Our Project\obj\x64\Debug\HDFaceBasics-WPF.g.resources
 C:\Users\Steven\Source\Repos\CMPUT414Group\Applications\Our Project\obj\x64\Debug\Microsoft.Samples.Kinect.HDFaceBasics.Properties.Resources.resources
 C:\Users\Steven\Source\Repos\CMPUT414Group\Applications\Our Project\obj\x64\Debug\HDFaceBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\bin\x64\Debug\HDFaceBasics-WPF.exe.config
+C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\HDFaceBasics-WPF.exe
+C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\HDFaceBasics-WPF.pdb

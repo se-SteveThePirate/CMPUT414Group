@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Samples.Kinect.HDFaceBasics
+﻿namespace TeamBest.KinectKapture
 {
     using System;
     using System.ComponentModel;
@@ -7,7 +7,6 @@
     using System.Windows.Media.Media3D;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Face;
-    //using Microsoft.VisualBasic.PowerPacks;
     using System.Windows.Controls;
     using System.Windows.Shapes;
     using System.Collections.Generic;
@@ -39,15 +38,11 @@
         /// </summary>
         private HighDefinitionFaceFrameSource highDefinitionFaceFrameSource = null;
 
-
-        private HighDefinitionFaceFrame HighDefinitionFaceFrame = null;
-        /// <summary>
+       /// <summary>
         /// HighDefinitionFaceFrameReader to read HighDefinitionFaceFrame to get FaceAlignment
         /// </summary>
         private HighDefinitionFaceFrameReader highDefinitionFaceFrameReader = null;
 
-        private FaceFrameSource faceSource = null;
-        private FaceFrameReader faceReader = null;
         /// <summary>
         /// FaceAlignment is the result of tracking a face, it has face animations location and orientation
         /// </summary>
@@ -88,10 +83,25 @@
         /// </summary>
         /// 
 
+        /// <summary>
+        /// Inidicates that the program is recording
+        /// </summary>
         private Boolean recording = false;
+        /// <summary>
+        /// Used to count the number of frames in the current recording
+        /// </summary>
         private int frameCount = 0;
+        /// <summary>
+        /// List the HighDetailFacePoints that the user has set to record
+        /// </summary>
         private List<HighDetailFacePoints> recordPoints = null;
+        /// <summary>
+        /// Used to output a file containing the capture information
+        /// </summary>
         private StreamWriter fileWriter = null;
+        /// <summary>
+        /// Head point used to relativize the point capture data from the face
+        /// </summary>
         private Joint head;
         public MainWindow()
         {
@@ -189,7 +199,7 @@
                 }
             }
         }
-
+        
         /// <summary>
         /// Returns the length of a vector from origin
         /// </summary>
@@ -203,7 +213,7 @@
 
             return result;
         }
-
+        
         /// <summary>
         /// Finds the closest body from the sensor if any
         /// </summary>
@@ -263,56 +273,7 @@
 
             return result;
         }
-        //Thomas 
-        /*
-        /// <summary>
-        /// Gets the current collection status
-        /// </summary>
-        /// <param name="status">Status value</param>
-        /// <returns>Status value as text</returns>
-        private static string GetCollectionStatusText(FaceModelBuilderCollectionStatus status)
-        {
-            string res = string.Empty;
-
-            if ((status & FaceModelBuilderCollectionStatus.FrontViewFramesNeeded) != 0)
-            {
-                res = "FrontViewFramesNeeded";
-                return res;
-            }
-
-            if ((status & FaceModelBuilderCollectionStatus.LeftViewsNeeded) != 0)
-            {
-                res = "LeftViewsNeeded";
-                return res;
-            }
-
-            if ((status & FaceModelBuilderCollectionStatus.RightViewsNeeded) != 0)
-            {
-                res = "RightViewsNeeded";
-                return res;
-            }
-
-            if ((status & FaceModelBuilderCollectionStatus.TiltedUpViewsNeeded) != 0)
-            {
-                res = "TiltedUpViewsNeeded";
-                return res;
-            }
-
-            if ((status & FaceModelBuilderCollectionStatus.Complete) != 0)
-            {
-                res = "Complete";
-                return res;
-            }
-
-            if ((status & FaceModelBuilderCollectionStatus.MoreFramesNeeded) != 0)
-            {
-                res = "TiltedUpViewsNeeded";
-                return res;
-            }
-
-            return res;
-        }
-        */
+        
         /// <summary>
         /// Helper function to format a status message
         /// </summary>
@@ -332,13 +293,14 @@
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.InitializeHDFace();
-            //Thomas
             foreach (string HDFP in Enum.GetNames(typeof(HighDetailFacePoints)))
                     {
                 ListViewItem item = new ListViewItem();
+        
                 CheckBox facePointItem = new CheckBox();
                 facePointItem.IsChecked = true;
                 facePointItem.Content=HDFP;
+                
                 this.FacePointCheckList.Items.Add(facePointItem);    
             }
         
@@ -447,10 +409,13 @@
 
                 foreach (CheckBox FacePoint in FacePointCheckList.Items)
                 {
-                    recordPoints.Add((HighDetailFacePoints)Enum.Parse(typeof(HighDetailFacePoints), FacePoint.Content.ToString()));
-                    writeFacePoints += FacePoint.Content.ToString() +", ";
-                }
-                fileWriter = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\test.txt"); //Thomas
+                    if (FacePoint.IsChecked.Value)
+                    {
+                        recordPoints.Add((HighDetailFacePoints)Enum.Parse(typeof(HighDetailFacePoints), FacePoint.Content.ToString()));
+                        writeFacePoints += FacePoint.Content.ToString() + ", ";
+                    }
+                 }
+                fileWriter = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\output.txt"); //Thomas
                 fileWriter.WriteLine(writeFacePoints);
 
             }
@@ -677,8 +642,6 @@
             newStatus += captureStatus.ToString();
 
             var collectionStatus = this.faceModelBuilder.CollectionStatus;
-
-          //Thomas  newStatus += ", " + GetCollectionStatusText(collectionStatus);
 
             this.CurrentBuilderStatus = newStatus;
         }
