@@ -1,32 +1,31 @@
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\bin\x64\Debug\KinectKapture.exe.config
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\bin\x64\Debug\KinectKapture.exe
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\bin\x64\Debug\KinectKapture.pdb
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.dll
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.xml
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture.csprojResolveAssemblyReference.cache
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\MainWindow.g.cs
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\App.g.cs
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.cache
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.lref
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\MainWindow.baml
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture.g.resources
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\Microsoft.Samples.Kinect.HDFaceBasics.Properties.Resources.resources
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture.csproj.GenerateResource.Cache
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture.exe
-C:\Users\Thomas\Documents\CMPUT414Group\Applications\Our Project\obj\x64\Debug\KinectKapture.pdb
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\bin\x64\Debug\KinectKapture.exe.config
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture.exe
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture.pdb
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\bin\x64\Debug\KinectKapture.exe
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\bin\x64\Debug\KinectKapture.pdb
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.dll
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.xml
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture.csprojResolveAssemblyReference.cache
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\MainWindow.g.cs
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\App.g.cs
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.cache
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.lref
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\MainWindow.baml
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture.g.resources
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\Microsoft.Samples.Kinect.HDFaceBasics.Properties.Resources.resources
-C:\Users\Thomas\Desktop\CMPUT 414\Project\Our Project\obj\x64\Debug\KinectKapture.csproj.GenerateResource.Cache
+D:\users\hOoLiGaNN\Documents\Our Project\bin\x64\Debug\KinectKapture.exe.config
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\MainWindow.g.cs
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\App.g.cs
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.cache
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.lref
+D:\users\hOoLiGaNN\Documents\Our Project\bin\x64\Debug\KinectKapture.exe
+D:\users\hOoLiGaNN\Documents\Our Project\bin\x64\Debug\KinectKapture.pdb
+D:\users\hOoLiGaNN\Documents\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.dll
+D:\users\hOoLiGaNN\Documents\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.xml
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\MainWindow.baml
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\KinectKapture.g.resources
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\Microsoft.Samples.Kinect.HDFaceBasics.Properties.Resources.resources
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\KinectKapture.csproj.GenerateResource.Cache
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\KinectKapture.exe
+D:\users\hOoLiGaNN\Documents\Our Project\obj\x64\Debug\KinectKapture.pdb
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\bin\x64\Debug\KinectKapture.exe.config
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.exe
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.pdb
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.csprojResolveAssemblyReference.cache
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\MainWindow.g.cs
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\App.g.cs
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture_MarkupCompile.cache
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture_MarkupCompile.lref
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\bin\x64\Debug\KinectKapture.exe
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\bin\x64\Debug\KinectKapture.pdb
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\bin\x64\Debug\Microsoft.Kinect.Face.dll
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\bin\x64\Debug\Microsoft.Kinect.Face.xml
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\MainWindow.baml
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.g.resources
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.csproj.GenerateResource.Cache
+D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\TeamBest.KinectKapture.Properties.Resources.resources

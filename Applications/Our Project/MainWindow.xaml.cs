@@ -1,4 +1,12 @@
-﻿namespace TeamBest.KinectKapture
+﻿/*
+ * Based on HDFaceBasics from the KinectSDK v2.0 from Microsoft
+ * http://www.microsoft.com/en-us/download/details.aspx?id=44561 
+ * Copyright (c) Microsoft Corporation.  All rights reserved.
+ * 
+ * Thomas Cline
+ */
+
+namespace TeamBest.KinectKapture
 {
     using System;
     using System.ComponentModel;
@@ -11,6 +19,7 @@
     using System.Windows.Shapes;
     using System.Collections.Generic;
     using System.IO;
+    using Microsoft.Win32;
 
     /// <summary>
     /// Main Window
@@ -33,7 +42,7 @@
         private BodyFrameReader bodyReader = null;
 
         /// <summary>
-        /// HighDefinitionFaceFrameSource to get a reader and a builder from.
+        /// HighDefinitionFaceFrameSource to get a reader from.
         /// Also to set the currently tracked user id to get High Definition Face Frames of
         /// </summary>
         private HighDefinitionFaceFrameSource highDefinitionFaceFrameSource = null;
@@ -77,12 +86,6 @@
         /// Gets or sets the current status text to display
         /// </summary>
         private string statusText = "Ready To Start Capture";
-
-        /// <summary>
-        /// Initializes a new instance of the MainWindow class.
-        /// </summary>
-        /// 
-
         /// <summary>
         /// Inidicates that the program is recording
         /// </summary>
@@ -103,6 +106,7 @@
         /// Head point used to relativize the point capture data from the face
         /// </summary>
         private Joint head;
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -382,24 +386,22 @@
             }
         }
 
-        //Thomas obselete?
         /// <summary>
-        /// Start a face capture on clicking the button
+        /// Initializes the writing of a file that contains the specified capture points from the face mesh
         /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-       /* private void StartCapture_Button_Click(object sender, RoutedEventArgs e)
+        private void capturePoints()
         {
-            this.StartCapture();
-        }
-        */
+            // Displays a SaveFileDialog so the user can save the motion capture data
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Capture Friendly Format|*.txt";
+            saveFile.Title = "Save Motion File";
+            saveFile.ShowDialog();
 
-        //Steve is attempting to add bounding box generation
-        private void Capture_Button_Click(object sender, RoutedEventArgs e)
-        {
-            recording = !recording;
-            if (recording)
+            // If the file name is not an empty string open it for saving.
+            if (saveFile.FileName != "")
             {
+                // Saves the Image via a FileStream created by the OpenFile method.
+                recording = !recording;
                 frameCount = 0;
                 captureButton.Content = "Stop recording";
                 recordPoints = new List<HighDetailFacePoints>();
@@ -414,23 +416,41 @@
                         recordPoints.Add((HighDetailFacePoints)Enum.Parse(typeof(HighDetailFacePoints), FacePoint.Content.ToString()));
                         writeFacePoints += FacePoint.Content.ToString() + ", ";
                     }
-                 }
-                fileWriter = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\output.txt"); //Thomas
+                }
+                fileWriter = new StreamWriter(saveFile.FileName);
                 fileWriter.WriteLine(writeFacePoints);
-
             }
-            else
-            {
+        }
+
+        /// <summary>
+        /// Closes the file steam that is recording points captured from the face
+        /// </summary>
+        private void StopRecording()
+        {
+             recording = !recording;
                 captureButton.Content = "Start recording";
                 FacePointCheckList.IsEnabled = true;
                 rateSlider.IsEnabled = true;
                 if(fileWriter!=null)
-                {
-                    fileWriter.Close();
-                }
+                    {
+                        fileWriter.Close();
+                    }
+        }
+
+        /// <summary>
+        /// Initiates the process of recording points every frame or stops the process if currently running
+        /// </summary>
+        private void Capture_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!recording)
+            {
+                capturePoints();
             }
-
-
+            else
+            {
+                StopRecording();
+            }
+               
         }
 
         /// <summary>
@@ -440,14 +460,11 @@
         /// <param name="e">event arguments</param>
         private void BodyReader_FrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
-            this.CheckOnBuilderStatus();
-
             var frameReference = e.FrameReference;
             using (var frame = frameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
-                    // We might miss the chance to acquire the frame, it will be null if it's missed
                     return;
                 }
 
@@ -506,19 +523,15 @@
         /// <param name="e">event arguments</param>
         /// 
 
-        //Thomas
         private void HdFaceReader_FrameArrived(object sender, HighDefinitionFaceFrameArrivedEventArgs e)
         {
             using (var frame = e.FrameReference.AcquireFrame())
             {
-                // We might miss the chance to acquire the frame; it will be null if it's missed.
-                // Also ignore this frame if face tracking failed.
                 if (frame == null || !frame.IsFaceTracked)
                 {
                     return;
                 }
 
-                
                 if (recording && head != null)
                 {
                     frameCount++;
@@ -533,6 +546,7 @@
                     {
                         var vertices = this.currentFaceModel.CalculateVerticesForAlignment(this.currentFaceAlignment);
                         string coordinate = null;
+         
                         //Steve's code*****//
                         float minX = 100;
                         float maxX = 0;
@@ -573,77 +587,9 @@
 
                 var triangleIndices = this.currentFaceModel.TriangleIndices;
 
-
                 frame.GetAndRefreshFaceAlignmentResult(this.currentFaceAlignment);
                 this.UpdateMesh();
             }
-        }
-
-        /// <summary>
-        /// Start a face capture operation
-        /// </summary>
-        private void StartCapture()
-        {
-            this.StopFaceCapture();
-
-            this.faceModelBuilder = null;
-
-            this.faceModelBuilder = this.highDefinitionFaceFrameSource.OpenModelBuilder(FaceModelBuilderAttributes.None);
-
-            this.faceModelBuilder.BeginFaceDataCollection();
-
-            this.faceModelBuilder.CollectionCompleted += this.HdFaceBuilder_CollectionCompleted;
-
-           
-        }
-
-        /// <summary>
-        /// Cancel the current face capture operation
-        /// </summary>
-        private void StopFaceCapture()
-        {
-            if (this.faceModelBuilder != null)
-            {
-                this.faceModelBuilder.Dispose();
-                this.faceModelBuilder = null;
-            }
-        }
-
-        /// <summary>
-        /// This event fires when the face capture operation is completed
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        private void HdFaceBuilder_CollectionCompleted(object sender, FaceModelBuilderCollectionCompletedEventArgs e)
-        {
-            var modelData = e.ModelData;
-
-            this.currentFaceModel = modelData.ProduceFaceModel();
-
-            this.faceModelBuilder.Dispose();
-            this.faceModelBuilder = null;
-
-            this.CurrentBuilderStatus = "Capture Complete";
-        }
-
-        /// <summary>
-        /// Check the face model builder status
-        /// </summary>
-        private void CheckOnBuilderStatus()
-        {
-            if (this.faceModelBuilder == null)
-            {
-                return;
-            }
-
-            string newStatus = string.Empty;
-
-            var captureStatus = this.faceModelBuilder.CaptureStatus;
-            newStatus += captureStatus.ToString();
-
-            var collectionStatus = this.faceModelBuilder.CollectionStatus;
-
-            this.CurrentBuilderStatus = newStatus;
         }
     }
 }

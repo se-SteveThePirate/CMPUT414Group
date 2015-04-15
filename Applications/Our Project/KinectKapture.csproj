@@ -2,13 +2,14 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <StartupObject>Microsoft.Samples.Kinect.HDFaceBasics.App</StartupObject>
+    <StartupObject>TeamBest.KinectKapture.App</StartupObject>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{849C4C35-7685-44FB-B43A-C078E88AC9F5}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\Kinect.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -37,7 +38,7 @@
     <OutputType>WinExe</OutputType>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>Microsoft.Samples.Kinect.HDFaceBasics</RootNamespace>
+    <RootNamespace>TeamBest.KinectKapture</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -122,13 +123,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Kinect.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Logo.png" />
-    <Resource Include="Images\Status.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

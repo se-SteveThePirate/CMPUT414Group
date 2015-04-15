@@ -4,7 +4,7 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Samples.Kinect.HDFaceBasics
+namespace TeamBest.KinectKapture
 {
     using System.Windows;
 
