@@ -38,3 +38,5 @@ D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectFusionExplorer-WPF\obj\Debug\Mi
 D:\users\hOoLiGaNN\Documents\CMPUT414Group\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.csproj.GenerateResource.Cache
 D:\users\hOoLiGaNN\Documents\CMPUT414Group\Applications\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.exe
 D:\users\hOoLiGaNN\Documents\CMPUT414Group\Applications\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.pdb
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.exe
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\KinectFusionExplorer-WPF\obj\Debug\KinectFusionExplorer-WPF.pdb

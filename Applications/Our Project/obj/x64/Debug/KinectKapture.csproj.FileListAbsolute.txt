@@ -29,3 +29,19 @@ D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\MainWindow.baml
 D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.g.resources
 D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\KinectKapture.csproj.GenerateResource.Cache
 D:\users\hOoLiGaNN\Documents\Our Project - Copy\obj\x64\Debug\TeamBest.KinectKapture.Properties.Resources.resources
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\bin\x64\Debug\KinectKapture.exe.config
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture.pdb
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\bin\x64\Debug\KinectKapture.exe
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\bin\x64\Debug\KinectKapture.pdb
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.dll
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\bin\x64\Debug\Microsoft.Kinect.Face.xml
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture.csprojResolveAssemblyReference.cache
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\MainWindow.g.cs
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\App.g.cs
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.cache
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture_MarkupCompile.lref
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\MainWindow.baml
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture.g.resources
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\TeamBest.KinectKapture.Properties.Resources.resources
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture.csproj.GenerateResource.Cache
+C:\Users\Steven\Source\Repos\CMPUT414Group2\Applications\Our Project\obj\x64\Debug\KinectKapture.exe

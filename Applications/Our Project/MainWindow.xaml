@@ -98,9 +98,9 @@
 
             </Viewport3D>
 
-            <Canvas x:Name="testCanvas">
+            <!--<Canvas x:Name="testCanvas">
                 <Rectangle x:Name="boundingBox2" StrokeThickness="2" Stroke="Red" Grid.Column="2" Panel.ZIndex="99"/>
-            </Canvas>
+            </Canvas>-->
 
             <ListView x:Name="FacePointCheckList" Grid.Column="0"/>
         </Grid>

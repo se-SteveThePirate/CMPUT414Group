@@ -284,7 +284,15 @@ namespace TeamBest.KinectKapture
         /// <returns>Status text</returns>
         private string MakeStatusText()
         {
-            string status = string.Format(System.Globalization.CultureInfo.CurrentCulture, "Builder Status: {0}, Current Tracking ID: {1}", this.CurrentBuilderStatus, this.CurrentTrackingId);
+            string status = "";
+            if (this.currentTrackingId != 0)
+            {
+               status = string.Format(System.Globalization.CultureInfo.CurrentCulture, "Builder Status: {0}, Current Tracking ID: {1}", this.CurrentBuilderStatus, this.CurrentTrackingId);
+            }
+            else
+            {
+                status = "Error! No target found!";
+            }
 
             return status;
         }
@@ -538,7 +546,6 @@ namespace TeamBest.KinectKapture
 
                     txt_FPS.Text = frameCount.ToString();
 
-                    //********************
                     GeometryConverter convert = new GeometryConverter();
 
 
@@ -548,12 +555,12 @@ namespace TeamBest.KinectKapture
                         string coordinate = null;
          
                         //Steve's code*****//
-                        float minX = 100;
-                        float maxX = 0;
-                        float minY = 100;
-                        float maxY = 0;
-                        Rectangle boundingBox = new Rectangle();
-                        testCanvas.Children.Add(boundingBox);
+                        //float minX = 100;
+                        //float maxX = 0;
+                        //float minY = 100;
+                        //float maxY = 0;
+                        //Rectangle boundingBox = new Rectangle();
+                        //testCanvas.Children.Add(boundingBox);
                         //*****************//
                         foreach (HighDetailFacePoints HDFP in recordPoints)
                         {
@@ -565,20 +572,20 @@ namespace TeamBest.KinectKapture
                             float z = spacePoint.Z - head.Position.Z;
 
                             //***************************//
-                            minX = Math.Min(minX, x);
-                            maxX = Math.Max(maxX, x);
-                            minY = Math.Min(minY, y);
-                            maxY = Math.Max(maxY, y);
+                            //minX = Math.Min(minX, x);
+                            //maxX = Math.Max(maxX, x);
+                            //minY = Math.Min(minY, y);
+                            //maxY = Math.Max(maxY, y);
                             //***************************//
 
                             coordinate += x + " " + y + " " + z;
                             fileWriter.WriteLine(coordinate);
                         }
                         //********************
-                        boundingBox2.Width = 75;
-                        boundingBox2.Height = 100;
-                        Canvas.SetLeft(boundingBox2, 490+(650*minX));
-                        Canvas.SetTop(boundingBox2, 375+(-600*maxY));
+                        //boundingBox2.Width = 75;
+                        //boundingBox2.Height = 100;
+                        //Canvas.SetLeft(boundingBox2, 490+(650*minX));
+                        //Canvas.SetTop(boundingBox2, 375+(-600*maxY));
 
                         //**********************************
                         fileWriter.WriteLine("#");
