@@ -61,12 +61,7 @@ namespace TeamBest.KinectKapture
         /// FaceModel is a result of capturing a face
         /// </summary>
         private FaceModel currentFaceModel = null;
-
-        /// <summary>
-        /// FaceModelBuilder is used to produce a FaceModel
-        /// </summary>
-        private FaceModelBuilder faceModelBuilder = null;
-
+        
         /// <summary>
         /// The currently tracked body
         /// </summary>
@@ -332,7 +327,6 @@ namespace TeamBest.KinectKapture
             this.bodyReader.FrameArrived += this.BodyReader_FrameArrived;
 
             this.highDefinitionFaceFrameSource = new HighDefinitionFaceFrameSource(this.sensor);
-            this.highDefinitionFaceFrameSource.TrackingIdLost += this.HdFaceSource_TrackingIdLost;
 
             this.highDefinitionFaceFrameReader = this.highDefinitionFaceFrameSource.OpenReader();
             this.highDefinitionFaceFrameReader.FrameArrived += this.HdFaceReader_FrameArrived;
@@ -501,29 +495,6 @@ namespace TeamBest.KinectKapture
             }
         }
         
-        /// <summary>
-        /// This event is fired when a tracking is lost for a body tracked by HDFace Tracker
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        private void HdFaceSource_TrackingIdLost(object sender, TrackingIdLostEventArgs e)
-        {
-            var lostTrackingID = e.TrackingId;
-
-            if (this.CurrentTrackingId == lostTrackingID)
-            {
-                this.CurrentTrackingId = 0;
-                this.currentTrackedBody = null;
-                if (this.faceModelBuilder != null)
-                {
-                    this.faceModelBuilder.Dispose();
-                    this.faceModelBuilder = null;
-                }
-
-                this.highDefinitionFaceFrameSource.TrackingId = 0;
-            }
-        }
-
         /// <summary>
         /// This event is fired when a new HDFace frame is ready for consumption
         /// </summary>
