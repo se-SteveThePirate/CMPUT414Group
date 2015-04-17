@@ -1,0 +1,11 @@
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\bin\Debug\CSharpSample.exe
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\bin\Debug\CSharpSample.pdb
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\Interop.C3DSERVERLib.dll
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\CSharpSample.csproj.ResolveComReference.cache
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\CSharpSample.Form1.resources
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\CSharpSample.Properties.Resources.resources
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\CSharpSample.exe
+F:\Sameer\Work\mls\Apps\C3DServerSamples\CSharpSample\obj\x86\Debug\CSharpSample.pdb
